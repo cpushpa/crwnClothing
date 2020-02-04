@@ -11,29 +11,34 @@ constructor(props){
             {
                 id:1,
                 imageUrl:'https://i.ibb.co/cvpntL1/hats.png',
-                title:'hats'
+                title:'hats',
+                linkUrl:'hats'
             },
             {
                 id:2,
                 imageUrl:'https://i.ibb.co/px2tCc3/jackets.png',
-                title:'jackets'
+                title:'jackets',
+                linkUrl:''
             },
             {
                 id:3,
                 imageUrl:'https://i.ibb.co/0jqHpnp/sneakers.png',
-                title:'sneakers'
+                title:'sneakers',
+                linkUrl:''
             },
             {
                 id:4,
                 imageUrl:'https://i.ibb.co/GCCdy8t/womes.png',
                 title:'womens',
-                size:'large'
+                size:'large',
+                linkUrl:''
             },
             {
                 id:5,
                 imageUrl:'https://i.ibb.co/R70vBrQ/men.png',
                 title:'mens',
-                size:'large'
+                size:'large',
+                linkUrl:''
             }
         ]
     };
@@ -41,7 +46,8 @@ constructor(props){
 render(){
     return(
         <div className="directory-menu">
-        {this.state.categories.map(({title, imageUrl, id, size})=> <MenuItem key={id} title={title} imageUrl={imageUrl} size={size} />
+        {this.state.categories.map(({id, ...othercategories})=> 
+            <MenuItem key={id} {...othercategories} />
         )}
         </div>
     );
